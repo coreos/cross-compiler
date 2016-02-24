@@ -1,4 +1,4 @@
-FROM cross-compiler:base
+FROM quay.io/coreos/cross-compiler:base
 
 RUN apt-get update && apt-get -y install mingw-w64
 

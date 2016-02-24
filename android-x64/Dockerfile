@@ -1,4 +1,4 @@
-FROM cross-compiler:base
+FROM quay.io/coreos/cross-compiler:base
 
 ENV CROSS_TRIPLE x86_64-linux-android
 ENV CROSS_ROOT /usr/${CROSS_TRIPLE}

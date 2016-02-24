@@ -1,5 +1,5 @@
-cross-compiler [![Build Status](https://travis-ci.org/scakemyer/cross-compiler.svg?branch=master)](https://travis-ci.org/scakemyer/cross-compiler)
-==============
+cross-compilers [![Build Status](https://travis-ci.org/coreos/cross-compiler.svg?branch=master)](https://travis-ci.org/coreos/cross-compiler)
+===============
 
 C/C++ Cross compiling environment containers
 

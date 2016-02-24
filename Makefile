@@ -1,6 +1,5 @@
 # Name of the project.
-PROJECT = quasarhq
-IMAGE = cross-compiler
+DOCKER_IMAGE = quay.io/coreos/cross-compiler
 
 # Set binaries and platform specific variables.
 DOCKER = docker
@@ -27,11 +26,12 @@ all:
 	done
 
 base:
-	$(DOCKER) build -t $(IMAGE):base .
+	$(DOCKER) build -t $(DOCKER_IMAGE):base .
 
 $(PLATFORMS): base
-	$(DOCKER) build -t $(IMAGE):$@ $@;
+	$(DOCKER) build -t $(DOCKER_IMAGE):$@ $@;
 
-push:
-	docker tag cross-compiler:$(PLATFORM) $(PROJECT)/cross-compiler:$(PLATFORM)
-	docker push $(PROJECT)/cross-compiler:$(PLATFORM)
+push: $(PLATFORMS)
+	for i in $(PLATFORMS); do \
+		$(DOCKER) push $(DOCKER_IMAGE):$$i; \
+	done
